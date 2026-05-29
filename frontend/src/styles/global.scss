@@ -1,0 +1,140 @@
+// Velvet Vista - Global Styles
+// Luxury Theme Variables
+
+// Dark Mode (Default)
+$dark-primary: #0B0C10; // Deep Obsidian
+$dark-secondary: #4B0082; // Royal Velvet
+$dark-accent: #00FFFF; // Neon Aqua
+$dark-container: #2A2B4D; // Deep Indigo
+
+// Light Mode (Alternative)
+$light-primary: #FAFAFA; // Premium Paper White
+$light-secondary: #1C1C1C; // Deep Charcoal Slate
+$light-accent: #00875A; // Luxury Emerald
+
+// Shared Colors
+$text-light: #FFFFFF;
+$text-dark: #000000;
+$border-color: rgba(255, 255, 255, 0.1);
+
+// Typography
+$font-family: 'Inter', sans-serif;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+
+// Spacing
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// Shadows
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Base Styles
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family;
+  line-height: 1.5;
+  color: $text-light;
+  background-color: $dark-primary;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+// Accessibility
+:focus {
+  outline: 2px solid $dark-accent;
+  outline-offset: 2px;
+}
+
+// Links
+ a {
+  color: $dark-accent;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: lighten($dark-accent, 20%);
+  }
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-weight: 500;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Cards
+.card {
+  background-color: $dark-container;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-md;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Containers
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// Utility Classes
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+
+.p-sm { padding: $spacing-sm; }
+.p-md { padding: $spacing-md; }
+.p-lg { padding: $spacing-lg; }
