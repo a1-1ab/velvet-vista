@@ -68,21 +68,17 @@ The GitHub Actions workflow runner (`.github/workflows/verify.yml`) automaticall
 - [x] **Phase 1:** Repository Framing & CI/CD Linter Automation Configuration[cite: 1]
 - [ ] **Phase 2:** Supabase Relational Migration Schemes & Row-Level Security Enforcements[cite: 1]
 - [x] **Phase 3:** NestJS Domain Services, Levenshtein Matrices, & Edge AI Route Handling[cite: 1]
-- [ ] **Phase 4:** Angular Client Shell & Accessible Interactive Theme Layouts[cite: 1]
+- [x] **Phase 4:** Angular Client Shell & Accessible Interactive Theme Layouts[cite: 1]
 
 ### 6.2 Active Task Horizon
 * **Phase 2:** Run the Supabase migrations (`001_create_users_table.sql`, `002_create_products_table.sql`, `003_create_orders_table.sql`, `004_create_cart_table.sql`) and seed the database with luxury watch data (`luxury_watches.sql`).
-* **Phase 4:** Initialize the Angular frontend structure, including:
-  - Class-based components for `WatchCard`, `SearchBar`, and `ThemeToggle`.
-  - Services for `FuzzySearch`, `Supabase`, and `Theme`.
-  - Dual-theme system (Dark/Light mode) with SCSS variables.
-  - Accessibility (A11y) compliance for all components.
+* **Phase 3:** Implement the `ProductsModule` and `McpModule` in the backend.
 
 ### 6.3 Next Steps
 1. **Set up Supabase:**
    - Create a new project in [Supabase Dashboard](https://app.supabase.com/).
-   - Run the SQL migrations from `docs/supabase-schema.md`.
-   - Seed the database with luxury watch data.
+   - Run the SQL migrations from `supabase/migrations/`.
+   - Seed the database with luxury watch data from `supabase/seed/luxury_watches.sql`.
    - Update `backend/src/config/supabase.config.ts` with your Supabase credentials.
 
 2. **Complete Backend:**
@@ -90,11 +86,9 @@ The GitHub Actions workflow runner (`.github/workflows/verify.yml`) automaticall
    - Develop the `McpModule` for JSON-RPC 2.0 over SSE.
    - Test the `FuzzySearchService` with real data.
 
-3. **Develop Frontend:**
-   - Initialize the Angular project structure.
-   - Implement the `SupabaseService` for frontend database interactions.
-   - Create the `ThemeService` for dual-theme support.
-   - Build the UI components (`WatchCard`, `SearchBar`, etc.).
+3. **Test Frontend:**
+   - Run the Angular development server and verify all pages (Home, Watches, Watch Detail, Cart).
+   - Test the `SupabaseService` and `ThemeService`.
 
 4. **Deploy to Cloudflare:**
    - Deploy the backend to Cloudflare Workers.
@@ -110,3 +104,40 @@ The GitHub Actions workflow runner (`.github/workflows/verify.yml`) automaticall
 - [FuzzySearchController](backend/src/modules/fuzzy-search/fuzzy-search.controller.ts)
 - [AppModule](backend/src/app.module.ts)
 - [Main.ts](backend/src/main.ts)
+- [SupabaseService (Frontend)](frontend/src/app/services/supabase.service.ts)
+- [ThemeService (Frontend)](frontend/src/app/services/theme.service.ts)
+- [Watch Model](frontend/src/app/models/watch.model.ts)
+- [Home Component](frontend/src/app/pages/home/home.component.ts)
+- [Watches Component](frontend/src/app/pages/watches/watches.component.ts)
+- [Watch Detail Component](frontend/src/app/pages/watch-detail/watch-detail.component.ts)
+- [Cart Component](frontend/src/app/pages/cart/cart.component.ts)
+- [CI/CD Workflow](.github/workflows/verify.yml)
+
+---
+
+## 8. Repository Structure Summary
+
+### Backend (`backend/`)
+- **Core:** `app.module.ts`, `main.ts`
+- **Modules:** `fuzzy-search/` (controller, module, service)
+- **Config:** `supabase.config.ts`
+- **Configs:** `package.json`, `tsconfig.json`, `.eslintrc.json`, `jest.config.js`
+
+### Frontend (`frontend/`)
+- **Core:** `app.component.ts`, `app.config.ts`, `app.module.ts`, `app.routes.ts`
+- **Pages:** `home/`, `watches/`, `watch-detail/`, `cart/`
+- **Services:** `supabase.service.ts`, `theme.service.ts`
+- **Models:** `watch.model.ts`
+- **Configs:** `package.json`, `tsconfig.json`, `angular.json`, `.eslintrc.json`
+- **Styles:** `global.scss`
+- **Environments:** `environment.ts`, `environment.prod.ts`
+
+### Supabase (`supabase/`)
+- **Migrations:** `001_create_users_table.sql`, `002_create_products_table.sql`, `003_create_orders_table.sql`, `004_create_cart_table.sql`
+- **Seed:** `luxury_watches.sql`
+
+### CI/CD (`.github/workflows/`)
+- **Workflow:** `verify.yml` (Backend + Frontend validation)
+
+### Documentation (`docs/`)
+- **Guides:** `repository-structure.md`, `supabase-schema.md`
