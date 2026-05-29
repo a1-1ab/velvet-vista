@@ -76,7 +76,6 @@ The GitHub Actions workflow runner (`.github/workflows/verify.yml`) automaticall
 
 ### 6.3 Next Steps
 1. **Set up Supabase:**
-   - Create a new project in [Supabase Dashboard](https://app.supabase.com/).
    - Run the SQL migrations from `supabase/migrations/`.
    - Seed the database with luxury watch data from `supabase/seed/luxury_watches.sql`.
    - Update `backend/src/config/supabase.config.ts` with your Supabase credentials.
